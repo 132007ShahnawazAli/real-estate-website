@@ -3,7 +3,6 @@ import React from "react";
 export default function Navbar() {
   return (
     <div className="relative w-full h-fit flex justify-between items-center px-6 sm:px-12 md:px-16 lg:px-20 py-5 z-20">
-      {/* logo */}
       <span className="text-white font-medium font-neue text-base">FLUIDGLASS</span>
       <div className="flex items-center gap-48 bg-black/77 px-5 py-2.5 ">
         <p className="font-spline">MENU</p>
