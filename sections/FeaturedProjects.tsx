@@ -1,100 +1,314 @@
-import React from "react";
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Button from "@/components/Button";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+
+gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
+
+const PROJECTS = [
+  {
+    id: "01",
+    name: "Casa Terracotta",
+    location: "Königswinter, Germany",
+    tag: "Residential",
+    year: "2024",
+    beds: "4 Bedrooms",
+    baths: "3 Bathrooms",
+    area: "2,400 sqft",
+    description:
+      "A cliff-side residence carved into the hillside, where raw stone meets refined living. Every room opens to an uninterrupted horizon.",
+    src: "/casa-terracotta.jpg",
+  },
+  {
+    id: "02",
+    name: "Villa Obscura",
+    location: "Amalfi Coast, Italy",
+    tag: "Luxury Estate",
+    year: "2023",
+    beds: "6 Bedrooms",
+    baths: "5 Bathrooms",
+    area: "4,100 sqft",
+    description:
+      "Perched above the Tyrrhenian Sea, this estate captures light and silence in equal measure. Architecture as atmosphere.",
+    src: "/villa.jpg",
+  },
+  {
+    id: "03",
+    name: "The Meridian",
+    location: "Reykjavik, Iceland",
+    tag: "Penthouse",
+    year: "2024",
+    beds: "3 Bedrooms",
+    baths: "2 Bathrooms",
+    area: "1,800 sqft",
+    description:
+      "An urban sanctuary above the Arctic capital. Volcanic stone, geothermal warmth, and a skyline that changes every hour.",
+    src: "/team.jpg",
+  },
+];
 
 export default function FeaturedProjects() {
+  const introRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const scrambleRef = useRef<HTMLSpanElement>(null);
+  const line1Ref = useRef<HTMLSpanElement>(null);
+  const line2Ref = useRef<HTMLSpanElement>(null);
+  const paraRef = useRef<HTMLParagraphElement>(null);
+  const btnRef = useRef<HTMLDivElement>(null);
+
+  const pinnedRef = useRef<HTMLDivElement>(null);
+  const cardWrapRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const detailRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    // ── INTRO ANIMATIONS ──────────────────────────────────────────
+    const introCtx = gsap.context(() => {
+      // Dot flicker
+      gsap.fromTo(
+        dotRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.08,
+          repeat: 6,
+          yoyo: true,
+          ease: "none",
+          scrollTrigger: { trigger: introRef.current, start: "top 75%", once: true },
+          onComplete: () => gsap.set(dotRef.current, { opacity: 1 }),
+        }
+      );
+
+      // Scramble + heading + para + btn
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: introRef.current, start: "top 80%", once: true },
+      });
+
+      tl.to(scrambleRef.current, {
+          duration: 1.2,
+          scrambleText: {
+            text: "FEATURED PROJECTS",
+            chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            revealDelay: 0.3,
+            speed: 0.4,
+          },
+          ease: "none",
+        })
+        .from(line1Ref.current, { opacity: 0, y: 28, duration: 0.65, ease: "power3.out" }, "-=0.25")
+        .from(line2Ref.current, { opacity: 0, y: 28, duration: 0.65, ease: "power3.out" }, "-=0.45")
+        .from(paraRef.current,  { opacity: 0, y: 20, duration: 0.55, ease: "power2.out" }, "-=0.35")
+        .from(btnRef.current,   { opacity: 0, y: 16, duration: 0.5,  ease: "power2.out" }, "-=0.3");
+    }, introRef);
+
+    // ── PINNED CARD STACK ─────────────────────────────────────────
+    const pinnedCtx = gsap.context(() => {
+      const pinned = pinnedRef.current;
+      if (!pinned) return;
+
+      // Initial states
+      cardWrapRefs.current.forEach((el, i) => {
+        if (!el) return;
+        gsap.set(el, { yPercent: i === 0 ? 0 : 100 });
+      });
+      detailRefs.current.forEach((el, i) => {
+        if (!el) return;
+        gsap.set(el, { opacity: i === 0 ? 1 : 0, y: i === 0 ? 0 : 24 });
+      });
+
+      // Build pinned timeline
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: pinned,
+          start: "top top",
+          end: `+=${PROJECTS.length * 120}%`,
+          scrub: 1.2,
+          pin: true,
+          pinSpacing: true,
+        },
+      });
+
+      // Hold on first slide
+      tl.to({}, { duration: 0.6 });
+
+      for (let i = 1; i < PROJECTS.length; i++) {
+        const card       = cardWrapRefs.current[i];
+        const prevDetail = detailRefs.current[i - 1];
+        const nextDetail = detailRefs.current[i];
+
+        tl
+          .to(card,       { yPercent: 0,  duration: 0.7, ease: "power2.inOut" }, `s${i}`)
+          .to(prevDetail, { opacity: 0, y: -20, duration: 0.3, ease: "power1.in"  }, `s${i}`)
+          .to(nextDetail, { opacity: 1, y: 0,   duration: 0.4, ease: "power2.out" }, `s${i}+=0.3`)
+          .to({}, { duration: 0.6 });
+      }
+    }, pinnedRef);
+
+    return () => {
+      introCtx.revert();
+      pinnedCtx.revert();
+    };
+  }, []);
+
   return (
-    <section className="relative w-full bg-white text-zinc-950 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-16 md:gap-24">
-      <div className="w-full flex flex-col items-start gap-8 max-w-4xl pt-4">
-        <div className="flex items-center gap-2 font-spline text-xs text-zinc-900 select-none">
-          <div className="h-2 w-2 bg-black"></div>
-          <span className="text-base font-mono uppercase">FEATURED PROJECTS</span>
+    <>
+      {/* ══ INTRO ══════════════════════════════════════════════════ */}
+      <div
+        ref={introRef}
+        className="relative w-full bg-white text-zinc-950 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-12 md:gap-16"
+      >
+        {/* Label */}
+        <div className="flex items-center gap-2 select-none">
+          <div ref={dotRef} className="h-2 w-2 bg-black shrink-0" />
+          <span ref={scrambleRef} className="text-base font-mono uppercase text-zinc-900">&nbsp;</span>
         </div>
 
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-zinc-950 font-sans">
-          Privacy, space and comfort <br /> in perfect harmony.
-        </h2>
+        {/* Heading + right column */}
+        <div className="flex flex-col md:flex-row w-full justify-between items-start gap-10 md:gap-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-zinc-950 font-sans leading-[1.1] max-w-2xl">
+            <span ref={line1Ref} className="block">Properties that define</span>
+            <span ref={line2Ref} className="block text-zinc-400">a new standard of living.</span>
+          </h2>
 
-        <Button label="GET A QUOTE" />
-      </div>
-
-      <div className="flex flex-col md:flex-row w-full justify-between items-end gap-10 md:gap-16">
-        <div className="w-full md:w-[45%]">
-          <div className="relative w-full aspect-square md:aspect-4/3 overflow-hidden bg-zinc-100 border border-zinc-200/50">
-            <Image
-              src="/casa-terracotta.jpg"
-              alt="Casa Terracotta Premium Residence"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-
-        <div className="w-full md:w-[45%] pb-4">
-          <div className="flex items-center gap-2 font-spline text-xs text-zinc-600 select-none mb-4">
-            <div className="h-2 w-2 bg-black"></div>
-            <span className="text-sm font-mono font-medium">Königswinter, Germany</span>
-          </div>
-
-          <h3 className="text-3xl sm:text-4xl font-normal text-zinc-950 font-sans mb-4">
-            Casa Terracotta
-          </h3>
-
-          <p className="text-base sm:text-lg font-medium text-zinc-700 font-sans mb-8">
-            Our glazing collection is defined by exceptional craftsmanship, refined design, and enduring quality. Made for bold architecture and uncompromising vision.
-          </p>
-
-          <div className="flex flex-col gap-4 mb-8">
-            <div className="flex items-center gap-3 font-spline text-sm text-zinc-900 select-none">
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_696_83)">
-                  <path d="M3 14.7083V9.16667H3.79167V6H16.4583V9.16667H17.25V14.7083H16.4583V13.125H3.79167V14.7083H3ZM10.5208 9.16667H15.6667V6.79167H10.5208V9.16667ZM4.58333 9.16667H9.72917V6.79167H4.58333V9.16667Z" fill="black" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_696_83">
-                    <rect width="19" height="19" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-
-              <span className="font-mono">2 Bedrooms</span>
-            </div>
-
-            <div className="flex items-center gap-3 font-spline text-sm text-zinc-900 select-none">
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_696_87)">
-                  <path d="M4.78879 7.61821C4.56026 7.38863 4.446 7.1126 4.446 6.79013C4.446 6.45921 4.56026 6.17606 4.78879 5.94067C5.01785 5.70528 5.29942 5.58759 5.6335 5.58759C5.96706 5.58759 6.24836 5.70449 6.47742 5.9383C6.70647 6.1721 6.821 6.45367 6.821 6.783C6.821 7.11234 6.70647 7.391 6.47742 7.619C6.24836 7.847 5.96706 7.96153 5.6335 7.96259C5.29994 7.96364 5.01837 7.84885 4.78879 7.61821ZM3.65354 16.625V15.8033H2.375V10.9614H4.446V10.3526C4.446 9.94254 4.58956 9.58893 4.87667 9.29179C5.16378 8.99466 5.51211 8.84582 5.92167 8.84529C6.1655 8.84529 6.39456 8.90071 6.60883 9.01154C6.82311 9.12238 7.01258 9.27016 7.17725 9.45488L7.98079 10.3922C8.08635 10.5009 8.18847 10.6025 8.28717 10.697C8.38586 10.7915 8.49485 10.8796 8.61412 10.9614H14.25V4.26709C14.25 3.97048 14.151 3.71318 13.9531 3.49521C13.7552 3.27724 13.5132 3.16773 13.2272 3.16667C13.0905 3.16667 12.9596 3.1957 12.8345 3.25375C12.7094 3.31234 12.5986 3.38992 12.502 3.4865L11.5124 4.49905C11.5784 4.72863 11.5916 4.95478 11.552 5.1775C11.5124 5.40023 11.4333 5.6087 11.3145 5.80292L9.68525 4.13488C9.86997 4.01296 10.0679 3.93511 10.279 3.90134C10.4901 3.86756 10.7012 3.89131 10.9123 3.97259L11.9019 2.95609C12.0787 2.774 12.2803 2.6315 12.5068 2.52859C12.7332 2.42567 12.9733 2.37448 13.2272 2.375C13.7365 2.375 14.1663 2.55973 14.5168 2.92917C14.8672 3.29862 15.0422 3.74432 15.0417 4.2663V10.9614H16.625V15.8033H15.3457V16.625H3.65354ZM3.16667 15.0116H15.8333V11.7531H3.16667V15.0116Z" fill="black" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_696_87">
-                    <rect width="19" height="19" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-
-              <span className="font-mono">2 Bathrooms</span>
-            </div>
-
-            <div className="flex items-center gap-3 font-spline text-sm text-zinc-900 select-none">
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_696_91)">
-                  <path d="M17.8125 10.6875H19V17.8125H0V1.1875H16.625V5.9375H17.8125V10.6875ZM1.1875 16.625H5.9375V5.9375H15.4375V2.375H1.1875V16.625ZM7.125 16.625H11.875V10.6875H16.625V7.125H7.125V16.625ZM17.8125 16.625V11.875H13.0625V16.625H17.8125Z" fill="black" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_696_91">
-                    <rect width="19" height="19" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-
-              <span className="font-mono">1,000sqft</span>
+          <div className="flex flex-col gap-8 max-w-sm">
+            <p
+              ref={paraRef}
+              className="text-base sm:text-lg font-medium font-sans text-zinc-600"
+            >
+              Each property in our portfolio is not listed — it is presented.
+              Evaluated against a precise standard of location, architecture,
+              and enduring value.
+            </p>
+            <div ref={btnRef}>
+              <Button label="VIEW ALL PROJECTS" />
             </div>
           </div>
-
-          <Button label="Project Overview" />
         </div>
       </div>
-    </section>
+
+      {/* ══ PINNED SCROLL STACK ════════════════════════════════════ */}
+      <div
+        ref={pinnedRef}
+        className="relative w-full bg-[#0e0e0e] font-sans select-none z-20"
+        style={{ height: "100vh" }}
+      >
+        <div className="absolute inset-0 flex">
+
+          {/* ── Left: portrait image cards ── */}
+          <div className="relative w-full md:w-[55%] h-full overflow-hidden">
+            {PROJECTS.map((project, i) => (
+              <div
+                key={project.id}
+                ref={(el) => { cardWrapRefs.current[i] = el; }}
+                className="absolute inset-0"
+                style={{ zIndex: i + 1 }}
+              >
+                <Image
+                  src={project.src}
+                  alt={project.name}
+                  fill
+                  sizes="55vw"
+                  className="object-cover"
+                  priority={i === 0}
+                />
+                {/* overlay */}
+                <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+
+                {/* counter top-left */}
+                <div className="absolute top-8 left-8 z-10">
+                  <span className="font-mono text-[11px] text-white/50 uppercase tracking-widest">
+                    {project.id}&nbsp;/&nbsp;0{PROJECTS.length}
+                  </span>
+                </div>
+
+                {/* tag badge bottom-left */}
+                <div className="absolute bottom-8 left-8 z-10">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-white/50 border border-white/20 px-3 py-1">
+                    {project.tag}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ── Right: detail panels ── */}
+          <div className="hidden md:block relative w-[45%] h-full">
+            {/* vertical rule */}
+            <div className="absolute left-0 top-16 bottom-16 w-px bg-white/10" />
+
+            {PROJECTS.map((project, i) => (
+              <div
+                key={project.id}
+                ref={(el) => { detailRefs.current[i] = el; }}
+                className="absolute inset-0 flex flex-col justify-center px-12 lg:px-16"
+              >
+                {/* location */}
+                <div className="flex items-center gap-2 mb-5">
+                  <div className="h-1.5 w-1.5 bg-white/30 shrink-0" />
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-white/40">
+                    {project.location}
+                  </span>
+                </div>
+
+                {/* name */}
+                <h3 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-normal text-white leading-[1.05] mb-3">
+                  {project.name}
+                </h3>
+
+                {/* year */}
+                <span className="font-mono text-[10px] uppercase tracking-widest text-white/25 mb-8">
+                  {project.year}
+                </span>
+
+                {/* thin rule */}
+                <div className="w-10 h-px bg-white/15 mb-7" />
+
+                {/* description */}
+                <p className="text-sm text-white/55 font-sans font-medium leading-relaxed mb-8 max-w-[22rem]">
+                  {project.description}
+                </p>
+
+                {/* stats */}
+                <div className="flex flex-col gap-3 mb-9 max-w-[22rem]">
+                  {[
+                    { label: "Bedrooms",  value: project.beds  },
+                    { label: "Bathrooms", value: project.baths },
+                    { label: "Area",      value: project.area  },
+                  ].map((stat) => (
+                    <div key={stat.label} className="flex items-center justify-between border-b border-white/8 pb-3">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-white/30">
+                        {stat.label}
+                      </span>
+                      <span className="font-mono text-sm text-white/75">
+                        {stat.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* cta */}
+                <button className="group flex items-center gap-3 w-fit">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-white/50 group-hover:text-white transition-colors duration-300">
+                    View Project
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white/30 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300">
+                    <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* scroll hint */}
+        <div className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+          <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/15">
+            Scroll to explore
+          </span>
+        </div>
+      </div>
+    </>
   );
 }

@@ -149,6 +149,7 @@ export default function OurMission() {
               src="/team.jpg"
               alt="Real Estate Advisory Curation Team"
               fill
+              sizes="45vw"
               className="object-cover mix-blend-luminosity"
               priority
             />

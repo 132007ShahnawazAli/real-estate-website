@@ -3,6 +3,7 @@ import StoryTransition from "@/sections/StoryTransition";
 import PortfolioStandard from "@/sections/PortfolioStandard";
 import OurMission from "@/sections/OurMission";
 import FeaturedProjects from "@/sections/FeaturedProjects";
+import FeaturedProjectsAlt from "@/sections/FeaturedProjectsAlt";
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
       <StoryTransition />
       <PortfolioStandard />
       <OurMission />
-      <FeaturedProjects />
+      {/* <FeaturedProjects /> */}
+      <FeaturedProjectsAlt />
     </main>
   );
 }
