@@ -4,6 +4,10 @@ import PortfolioStandard from "@/sections/PortfolioStandard";
 import OurMission from "@/sections/OurMission";
 import FeaturedProjects from "@/sections/FeaturedProjects";
 import FeaturedProjectsAlt from "@/sections/FeaturedProjectsAlt";
+import MarketData from "@/sections/MarketData";
+import Testimonials from "@/sections/Testimonials";
+import CreativeCTA from "@/sections/CreativeCTA";
+import Footer from "@/sections/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +18,10 @@ export default function Home() {
       <OurMission />
       {/* <FeaturedProjects /> */}
       <FeaturedProjectsAlt />
+      <MarketData />
+      <Testimonials />
+      <CreativeCTA />
+      <Footer />
     </main>
   );
 }

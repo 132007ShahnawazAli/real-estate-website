@@ -259,7 +259,9 @@ export default function FeaturedProjectsAlt() {
                   {/* CTA */}
                   <button className="flex items-center gap-2 text-xs font-mono text-white/70 uppercase tracking-[0.15em] group hover:text-white transition-colors duration-200">
                     View Project
-                    <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 group-hover:translate-x-1">
+                      <path d="M2 8L5.5 11.5L6.207 10.793L3.914 8.5H14V7.5H3.914L6.207 5.207L5.5 4.5L2 8Z" fill="currentColor" />
+                    </svg>
                   </button>
                 </div>
               </div>
