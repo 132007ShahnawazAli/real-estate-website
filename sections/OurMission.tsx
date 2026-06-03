@@ -119,18 +119,18 @@ export default function OurMission() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white text-zinc-950 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-16 md:gap-24"
+      className="relative w-full bg-slate-50 text-slate-900 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-16 md:gap-24"
     >
       {/* Top block — label, heading, CTA */}
       <div className="w-full flex flex-col items-start gap-8 max-w-4xl pt-4">
-        <div ref={labelRef} className="flex items-center gap-2 font-spline text-xs uppercase text-zinc-900 select-none">
-          <div ref={dotRef} className="h-2 w-2 bg-black" />
+        <div ref={labelRef} className="flex items-center gap-2 font-spline text-xs uppercase text-slate-900 select-none">
+          <div ref={dotRef} className="h-2 w-2 bg-violet-500 shrink-0" />
           <span ref={scrambleRef} className="text-base font-mono">&nbsp;</span>
         </div>
 
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-zinc-950 font-sans leading-[1.1]">
-          <span ref={line1Ref} className="block">Privacy, space and comfort</span>
-          <span ref={line2Ref} className="block">in perfect harmony.</span>
+          <span ref={line1Ref} className="block text-slate-900">Privacy, space and comfort</span>
+          <span ref={line2Ref} className="block text-slate-900">in perfect harmony.</span>
         </h2>
 
         <div ref={btnRef}>
@@ -159,7 +159,7 @@ export default function OurMission() {
         <div className="w-full md:w-[45%] pb-4">
           <p
             ref={paraRef}
-            className="text-base sm:text-lg font-medium font-sans text-zinc-700"
+            className="text-base sm:text-lg font-medium font-sans text-slate-600"
           >
             Every property we present is the result of deliberate curation
             — not volume. We evaluate location, architecture, and long-

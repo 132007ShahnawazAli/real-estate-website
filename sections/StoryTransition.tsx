@@ -56,7 +56,7 @@ export default function StoryTransition() {
         // Phase 3: bg snaps to white AND white text fades in simultaneously
         .to(
           bg,
-          { backgroundColor: "white", duration: 0.08, ease: "none" },
+          { backgroundColor: "#f8fafc", duration: 0.08, ease: "none" },
           "transition"
         )
         .to(
@@ -82,7 +82,7 @@ export default function StoryTransition() {
       <div
         ref={bgRef}
         className="absolute inset-0"
-        style={{ backgroundColor: "#0e0e0e" }}
+        style={{ backgroundColor: "#0f172a" }}
       />
 
       {/* Content layer */}
@@ -96,23 +96,23 @@ export default function StoryTransition() {
             Every home is built to impress.
             <br />
             <span>But does yours truly </span>
-            <span className="text-[#d94f4f]">move you?</span>
+            <span className="text-violet-500">move you?</span>
           </h2>
 
           {/* White screen text */}
           <div className="flex flex-col items-center gap-2">
             <span
               ref={whiteTextLine1Ref}
-              className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.2] tracking-tight text-zinc-900 font-sans"
+              className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.2] tracking-tight text-slate-900 font-sans"
             >
               We don&apos;t just find homes.
             </span>
             <span
               ref={whiteTextLine2Ref}
-              className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.2] tracking-tight text-zinc-900 font-sans"
+              className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.2] tracking-tight text-slate-900 font-sans"
             >
               We reveal{" "}
-              <span className="text-zinc-400">where you belong.</span>
+              <span className="text-slate-400">where you belong.</span>
             </span>
           </div>
         </div>

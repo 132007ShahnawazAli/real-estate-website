@@ -53,7 +53,7 @@ export default function CreativeCTA() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full min-h-screen bg-[#E5E4DF] flex flex-col items-center justify-center overflow-hidden py-32 z-10"
+      className="relative w-full min-h-screen bg-slate-100 flex flex-col items-center justify-center overflow-hidden py-32 z-10"
     >
       {/* Decorative scattered images */}
       
@@ -112,14 +112,14 @@ export default function CreativeCTA() {
       {/* Center Content */}
       <div ref={centerContentRef} className="relative z-30 flex flex-col items-center text-center gap-8 mt-12 max-w-4xl px-6">
         
-        <div className="flex items-center gap-2 font-spline text-xs uppercase text-zinc-900">
-          <div className="h-2 w-2 bg-black shrink-0" />
+        <div className="flex items-center gap-2 font-spline text-xs uppercase text-slate-900">
+          <div className="h-2 w-2 bg-violet-500 shrink-0" />
           <span className="text-base font-mono">THE NEXT STEP</span>
         </div>
 
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-zinc-950 font-sans leading-[1.1]">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 font-sans leading-[1.1]">
           <span className="block">Ready to make a move?</span>
-          <span className="block text-zinc-500">Your next chapter begins here.</span>
+          <span className="block text-slate-400">Your next chapter begins here.</span>
         </h2>
         
         <div className="mt-8">

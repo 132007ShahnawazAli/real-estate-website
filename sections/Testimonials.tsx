@@ -14,7 +14,7 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[0];
 
   return (
-    <section className="w-full bg-[#F3F2EE] py-24 px-6 md:px-12 lg:px-24">
+    <section className="w-full bg-slate-100 py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Top Navigation Bar */}
@@ -22,15 +22,15 @@ export default function Testimonials() {
 
           {/* Section Title */}
           <div className="flex items-center gap-2 select-none">
-            <div className="h-2 w-2 bg-black shrink-0" />
-            <span className="text-base font-mono uppercase text-zinc-900">
+            <div className="h-2 w-2 bg-violet-500 shrink-0" />
+            <span className="text-base font-mono uppercase text-slate-900">
               CLIENT STORIES
             </span>
           </div>
 
           {/* Pagination Counter */}
-          <div className="text-sm md:text-base font-mono text-zinc-900/50 tracking-widest md:absolute md:left-1/2 md:-translate-x-1/2">
-            <span className="text-zinc-900">01</span> / 05
+          <div className="text-sm md:text-base font-mono text-slate-400 tracking-widest md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span className="text-slate-900">01</span> / 05
           </div>
 
           {/* Navigation Buttons */}
@@ -66,18 +66,18 @@ export default function Testimonials() {
 
           {/* Quote Content */}
           <div className="lg:col-span-9 xl:col-span-10 relative lg:-mt-2">
-            <div className="absolute -top-12 -left-8 md:-top-16 md:-left-16 text-zinc-900 text-7xl md:text-9xl font-serif leading-none opacity-80">
+            <div className="absolute -top-12 -left-8 md:-top-16 md:-left-16 text-7xl md:text-9xl font-serif leading-none text-slate-900 opacity-10">
               “
             </div>
-            <h3 className="text-3xl md:text-5xl lg:text-6xl xl:text-[68px] leading-[1.05] text-zinc-950 font-normal font-sans tracking-tight mb-16 relative z-10 max-w-[42ch]">
+            <h3 className="text-3xl md:text-5xl lg:text-6xl xl:text-[68px] leading-[1.05] text-slate-900 font-normal font-sans tracking-tight mb-16 relative z-10 max-w-[42ch]">
               {currentTestimonial.quote}
             </h3>
 
             <div className="space-y-2">
-              <p className="text-xl md:text-[22px] text-zinc-950 font-medium font-sans">
+              <p className="text-xl md:text-[22px] font-medium font-sans text-slate-900">
                 {currentTestimonial.name}
               </p>
-              <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+              <p className="text-xs font-mono uppercase tracking-widest text-slate-500">
                 {currentTestimonial.role}
               </p>
             </div>

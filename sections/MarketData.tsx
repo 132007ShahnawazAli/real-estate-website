@@ -56,7 +56,7 @@ export default function MarketData() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#F9F9F9] text-zinc-950 px-6 sm:px-12 md:px-16 lg:px-24 py-24 md:py-32 font-sans select-none z-20"
+      className="w-full bg-slate-50 text-slate-900 px-6 sm:px-12 md:px-16 lg:px-24 py-24 md:py-32 font-sans select-none z-20"
     >
       <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
         
@@ -64,7 +64,7 @@ export default function MarketData() {
         <div className="lg:col-span-6">
           <h2 
             ref={leftTextRef}
-            className="text-3xl sm:text-4xl lg:text-[42px] leading-[1.3] font-normal text-zinc-900 max-w-xl"
+            className="text-3xl sm:text-4xl lg:text-[42px] leading-[1.3] font-normal text-slate-900 max-w-xl"
           >
             A handpicked team of advisors, driven by market intelligence and a deeply rooted disdain for the ordinary.
           </h2>
@@ -75,7 +75,7 @@ export default function MarketData() {
           
           <p 
             ref={rightTextRef}
-            className="text-sm md:text-[15px] leading-[1.7] text-zinc-800 max-w-lg"
+            className="text-sm md:text-[15px] leading-[1.7] text-slate-600 max-w-lg"
           >
             With no traditional agents, we take individual responsibility and do whatever it takes to bring value — taking ownership of every transaction. Unorthodox to some, but works for us. Our clients thrive on discretion, precision, and high standards.
           </p>
@@ -88,13 +88,13 @@ export default function MarketData() {
                 className="relative pl-5 flex flex-col"
               >
                 {/* L-Bracket styling matching the image */}
-                <div className="absolute left-0 top-5 w-3 h-10 border-l border-b border-zinc-300" />
+                <div className="absolute left-0 top-5 w-3 h-10 border-l border-b border-slate-200" />
                 
-                <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-600 mb-4 z-10">
+                <div className="text-[10px] uppercase font-mono tracking-widest mb-4 z-10 text-slate-500">
                   {stat.label}
                 </div>
                 
-                <div className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] leading-none font-normal text-zinc-950 tracking-tighter">
+                <div className="text-6xl sm:text-7xl md:text-8xl lg:text-[90px] leading-none font-normal tracking-tighter text-slate-900">
                   {stat.value}
                 </div>
               </div>

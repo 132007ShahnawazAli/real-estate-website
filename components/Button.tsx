@@ -51,7 +51,7 @@ export default function Button({ label, className = "", onMouseEnter, onMouseLea
 
   return (
     <button
-      className={`group w-[242px] h-[48px] bg-black hover:bg-zinc-900 transition-colors flex items-center justify-center gap-4 text-white font-spline text-sm uppercase cursor-pointer select-none ${className}`}
+      className={`group w-[242px] h-[48px] bg-slate-900 hover:bg-slate-800 transition-colors flex items-center justify-center gap-4 text-white font-spline text-sm uppercase cursor-pointer select-none ${className}`}
       style={{
         clipPath: "polygon(0 0, 100% 0, 100% 100%, 16px 100%, 0 calc(100% - 16px))",
       }}

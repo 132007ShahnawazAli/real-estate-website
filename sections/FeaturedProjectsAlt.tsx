@@ -164,20 +164,20 @@ export default function FeaturedProjectsAlt() {
       {/* ══ INTRO ════════════════════════════════════════════════ */}
       <div
         ref={introRef}
-        className="relative w-full bg-white text-zinc-950 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-12 md:gap-16"
+        className="relative w-full bg-slate-50 text-slate-900 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-12 md:gap-16"
       >
         <div className="flex items-center gap-2 select-none">
-          <div ref={dotRef} className="h-2 w-2 bg-black shrink-0" />
-          <span ref={scrambleRef} className="text-base font-mono uppercase text-zinc-900">&nbsp;</span>
+          <div ref={dotRef} className="h-2 w-2 bg-violet-500 shrink-0" />
+          <span ref={scrambleRef} className="text-base font-mono uppercase text-slate-900">&nbsp;</span>
         </div>
 
         <div className="flex flex-col md:flex-row w-full justify-between items-start gap-10 md:gap-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-zinc-950 font-sans leading-[1.1] max-w-2xl">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 font-sans leading-[1.1] max-w-2xl">
             <span ref={h1Ref} className="block">Rooted across America,</span>
-            <span ref={h2Ref} className="block text-zinc-400">built for distinction.</span>
+            <span ref={h2Ref} className="block text-slate-400">built for distinction.</span>
           </h2>
           <div className="flex flex-col gap-8 max-w-sm">
-            <p ref={paraRef} className="text-base sm:text-lg font-medium font-sans text-zinc-600">
+            <p ref={paraRef} className="text-base sm:text-lg font-medium font-sans text-slate-600">
               From coastline estates to mountain retreats — our portfolio spans
               the nation&apos;s most coveted addresses. Every market we enter, we
               redefine.
