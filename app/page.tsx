@@ -14,7 +14,7 @@ export default function Home() {
     <main className="w-full flex flex-col items-center min-h-screen bg-slate-50">
       <Hero />
       <StoryTransition />
-      <PortfolioStandard />
+      {/* <PortfolioStandard /> */}
       <OurMission />
       {/* <FeaturedProjects /> */}
       <FeaturedProjectsAlt />
