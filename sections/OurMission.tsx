@@ -124,7 +124,7 @@ export default function OurMission() {
       {/* Top block — label, heading, CTA */}
       <div className="w-full flex flex-col items-start gap-8 max-w-4xl pt-4">
         <div ref={labelRef} className="flex items-center gap-2 font-spline text-xs uppercase text-slate-900 select-none">
-          <div ref={dotRef} className="h-2 w-2 bg-violet-500 shrink-0" />
+          <div ref={dotRef} className="h-2 w-2 bg-slate-900 shrink-0" />
           <span ref={scrambleRef} className="text-base font-mono">&nbsp;</span>
         </div>
 

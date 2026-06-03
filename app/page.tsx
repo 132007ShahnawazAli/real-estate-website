@@ -11,7 +11,7 @@ import Footer from "@/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="w-full flex flex-col items-center min-h-screen bg-white">
+    <main className="w-full flex flex-col items-center min-h-screen bg-slate-50">
       <Hero />
       <StoryTransition />
       <PortfolioStandard />

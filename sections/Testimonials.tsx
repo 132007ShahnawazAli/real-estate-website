@@ -22,7 +22,7 @@ export default function Testimonials() {
 
           {/* Section Title */}
           <div className="flex items-center gap-2 select-none">
-            <div className="h-2 w-2 bg-violet-500 shrink-0" />
+            <div className="h-2 w-2 bg-slate-900 shrink-0" />
             <span className="text-base font-mono uppercase text-slate-900">
               CLIENT STORIES
             </span>

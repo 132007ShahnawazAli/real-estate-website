@@ -167,7 +167,7 @@ export default function FeaturedProjectsAlt() {
         className="relative w-full bg-slate-50 text-slate-900 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-12 md:gap-16"
       >
         <div className="flex items-center gap-2 select-none">
-          <div ref={dotRef} className="h-2 w-2 bg-violet-500 shrink-0" />
+          <div ref={dotRef} className="h-2 w-2 bg-slate-900 shrink-0" />
           <span ref={scrambleRef} className="text-base font-mono uppercase text-slate-900">&nbsp;</span>
         </div>
 
@@ -192,7 +192,7 @@ export default function FeaturedProjectsAlt() {
       {/* ══ EXPANDING IMAGE + CARD SCROLL ══════════════════════ */}
       <div
         ref={sectionRef}
-        className="relative w-full flex items-center justify-center z-20 bg-white"
+        className="relative w-full flex items-center justify-center z-20 bg-slate-50"
         style={{ minHeight: "100vh" }}
       >
         <div

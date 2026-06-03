@@ -100,7 +100,7 @@ export default function PortfolioStandard() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full flex justify-center z-20"
+      className="relative w-full flex justify-center z-20 bg-slate-950 py-12 md:py-24"
       style={{ minHeight: "100vh" }}
     >
       <div

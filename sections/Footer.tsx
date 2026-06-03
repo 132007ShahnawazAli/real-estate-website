@@ -79,14 +79,14 @@ export default function Footer() {
         {/* Left: Contact Info */}
         <div className="flex flex-col gap-12">
           <div className="flex items-center gap-2 font-spline text-xs uppercase text-slate-500">
-            <div className="h-2 w-2 bg-violet-500 shrink-0" />
+            <div className="h-2 w-2 bg-slate-900 shrink-0" />
             <span className="font-mono tracking-widest">GET IN TOUCH</span>
           </div>
 
           <div className="flex flex-col gap-2">
             <a 
               href="mailto:hello@horizon.com" 
-              className="text-3xl md:text-5xl font-sans font-normal text-white hover:text-violet-400 transition-colors duration-300"
+              className="text-3xl md:text-5xl font-sans font-normal text-white hover:text-slate-300 transition-colors duration-300"
             >
               hello@horizon.com
             </a>

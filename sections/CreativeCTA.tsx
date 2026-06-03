@@ -113,7 +113,7 @@ export default function CreativeCTA() {
       <div ref={centerContentRef} className="relative z-30 flex flex-col items-center text-center gap-8 mt-12 max-w-4xl px-6">
         
         <div className="flex items-center gap-2 font-spline text-xs uppercase text-slate-900">
-          <div className="h-2 w-2 bg-violet-500 shrink-0" />
+          <div className="h-2 w-2 bg-slate-900 shrink-0" />
           <span className="text-base font-mono">THE NEXT STEP</span>
         </div>
 

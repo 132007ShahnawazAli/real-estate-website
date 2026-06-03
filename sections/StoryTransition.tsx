@@ -96,7 +96,7 @@ export default function StoryTransition() {
             Every home is built to impress.
             <br />
             <span>But does yours truly </span>
-            <span className="text-violet-500">move you?</span>
+            <span className="text-slate-200">move you?</span>
           </h2>
 
           {/* White screen text */}
