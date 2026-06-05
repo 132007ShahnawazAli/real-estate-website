@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import Button from "@/components/Button";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,20 +9,6 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
 const PROJECTS = [
-  {
-    id: "01",
-    name: "The Horizon",
-    location: "Beverly Hills, California",
-    tag: "Luxury Estate",
-    year: "2024",
-    price: "$4,200,000",
-    beds: "5",
-    baths: "4",
-    area: "3,800",
-    description:
-      "Where the Pacific meets the sky — an estate designed for those who measure wealth in light and stillness.",
-    src: "/villa.jpg",
-  },
   {
     id: "02",
     name: "Stone & Silence",
@@ -36,7 +21,7 @@ const PROJECTS = [
     area: "2,900",
     description:
       "Nestled into the mountainside, this retreat balances raw alpine material with the quiet discipline of form.",
-    src: "/casa-terracotta.jpg",
+    src: "/v1.mp4",
   },
   {
     id: "03",
@@ -50,7 +35,175 @@ const PROJECTS = [
     area: "2,200",
     description:
       "A penthouse suspended between ocean and sky. Floor-to-ceiling glass frames the Atlantic as living canvas.",
-    src: "/team.jpg",
+    src: "/v2.mp4",
+  },
+  {
+    id: "04",
+    name: "Onyx Ridge",
+    location: "Jackson Hole, Wyoming",
+    tag: "Modern Cabin",
+    year: "2024",
+    price: "$6,500,000",
+    beds: "6",
+    baths: "5",
+    area: "4,500",
+    description:
+      "Dark timber and sheer glass carve a bold silhouette against the snow-dusted Tetons.",
+    src: "/v3.mp4",
+  },
+  {
+    id: "05",
+    name: "Lumina",
+    location: "Malibu, California",
+    tag: "Oceanfront",
+    year: "2025",
+    price: "$8,900,000",
+    beds: "4",
+    baths: "5",
+    area: "4,100",
+    description:
+      "Curved architecture mimicking the waves below. A sanctuary of natural light and bleached oak.",
+    src: "/v4.mp4",
+  },
+  {
+    id: "06",
+    name: "The Foundry",
+    location: "Tribeca, New York",
+    tag: "Penthouse Loft",
+    year: "2023",
+    price: "$12,000,000",
+    beds: "3",
+    baths: "4",
+    area: "3,200",
+    description:
+      "Industrial heritage reimagined with monolithic marble islands and brass accents.",
+    src: "/v5.mp4",
+  },
+  {
+    id: "07",
+    name: "Villa Blanca",
+    location: "Montecito, California",
+    tag: "Mediterranean",
+    year: "2022",
+    price: "$7,200,000",
+    beds: "5",
+    baths: "6",
+    area: "5,500",
+    description:
+      "Classic arches meet modern minimalism, surrounded by ancient olive trees and coastal breezes.",
+    src: "/v6.mp4",
+  },
+  {
+    id: "08",
+    name: "Echo Valley",
+    location: "Sedona, Arizona",
+    tag: "Desert Modern",
+    year: "2024",
+    price: "$4,800,000",
+    beds: "4",
+    baths: "4",
+    area: "3,600",
+    description:
+      "Rammed earth walls seamlessly blend the residence into the surrounding red rock canyons.",
+    src: "/v7.mp4",
+  },
+  {
+    id: "09",
+    name: "The Canopy",
+    location: "Portland, Oregon",
+    tag: "Eco Retreat",
+    year: "2023",
+    price: "$3,900,000",
+    beds: "3",
+    baths: "3",
+    area: "2,800",
+    description:
+      "Elevated living amongst old-growth pines. A masterclass in sustainable luxury and organic design.",
+    src: "/v8.mp4",
+  },
+  {
+    id: "10",
+    name: "Aura",
+    location: "Austin, Texas",
+    tag: "Urban Estate",
+    year: "2025",
+    price: "$5,400,000",
+    beds: "5",
+    baths: "6",
+    area: "4,800",
+    description:
+      "Expansive indoor-outdoor living spaces framing the city skyline with effortless elegance.",
+    src: "/v9.mp4",
+  },
+  {
+    id: "11",
+    name: "Solstice Point",
+    location: "Maui, Hawaii",
+    tag: "Tropical Villa",
+    year: "2024",
+    price: "$14,500,000",
+    beds: "6",
+    baths: "7",
+    area: "6,200",
+    description:
+      "An architectural masterpiece where volcanic stone and vanishing glass walls embrace the Pacific horizon.",
+    src: "/V10.mp4",
+  },
+  {
+    id: "16",
+    name: "Iron & Oak",
+    location: "Austin, Texas",
+    tag: "Hill Country Modern",
+    year: "2025",
+    price: "$3,600,000",
+    beds: "4",
+    baths: "3",
+    area: "3,200",
+    description:
+      "A masterful blend of raw industrial elements and warm natural woods set against rolling hills.",
+    src: "/v11.mp4",
+  },
+  {
+    id: "17",
+    name: "The Pinnacle",
+    location: "Park City, Utah",
+    tag: "Ski Chalet",
+    year: "2024",
+    price: "$8,200,000",
+    beds: "7",
+    baths: "8",
+    area: "6,500",
+    description:
+      "Ski-in, ski-out luxury defined by grand vaulted ceilings and panoramic snowy vistas.",
+    src: "/v1.mp4",
+  },
+  {
+    id: "18",
+    name: "Whispering Willows",
+    location: "Charleston, South Carolina",
+    tag: "Southern Estate",
+    year: "2022",
+    price: "$4,500,000",
+    beds: "5",
+    baths: "5",
+    area: "4,200",
+    description:
+      "Gracious verandas and ancient trees draped in Spanish moss frame this historic Southern gem.",
+    src: "/v2.mp4",
+  },
+  {
+    id: "19",
+    name: "Nordic Light",
+    location: "Seattle, Washington",
+    tag: "Minimalist Waterfront",
+    year: "2023",
+    price: "$6,100,000",
+    beds: "3",
+    baths: "3",
+    area: "2,700",
+    description:
+      "Clean lines and walls of glass embrace the Pacific Northwest's dramatic light and moody waters.",
+    src: "/v3.mp4",
   },
 ];
 
@@ -69,6 +222,11 @@ export default function FeaturedProjectsAlt() {
   const frameRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const bgRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Wipe panel refs — one per column line (3 panels for 4-column grid)
+  const wipePanelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const gridLinesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // ═══ INTRO ═══
@@ -100,23 +258,27 @@ export default function FeaturedProjectsAlt() {
       const frame = frameRef.current;
       if (!section || !frame) return;
 
-      // Initial states — images
-      cardRefs.current.forEach((el, i) => {
-        if (!el) return;
-        gsap.set(el, { yPercent: i === 0 ? 0 : 100 });
+      // Initial states — all overlays hidden, all bg videos hidden except first
+      overlayRefs.current.forEach((el) => {
+        if (el) gsap.set(el, { opacity: 0 });
+      });
+      bgRefs.current.forEach((el, i) => {
+        if (el) gsap.set(el, { opacity: i === 0 ? 1 : 0 });
       });
 
-      // Initial states — overlays hidden
-      overlayRefs.current.forEach((el) => {
-        if (!el) return;
-        gsap.set(el, { opacity: 0 });
+      // Initial state — wipe panels fully retracted (scaleX: 0, growing from right)
+      wipePanelRefs.current.forEach((el) => {
+        if (el) gsap.set(el, { scaleX: 0, transformOrigin: "right center" });
       });
 
       // Phase 1: frame expands to fullscreen
-      gsap.fromTo(frame,
+      gsap.fromTo(
+        frame,
         { width: "82%", height: "78vh", borderRadius: "6px" },
         {
-          width: "100%", height: "100vh", borderRadius: "0px",
+          width: "100%",
+          height: "100vh",
+          borderRadius: "0px",
           ease: "power2.inOut",
           scrollTrigger: {
             trigger: section,
@@ -127,36 +289,82 @@ export default function FeaturedProjectsAlt() {
         }
       );
 
-      // Phase 2: pin + card transitions
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: `+=${PROJECTS.length * 130}%`,
-          scrub: 1.2,
-          pin: true,
-          pinSpacing: true,
-        },
-      });
+      // Phase 2: pin the section, detect scroll steps, auto-play each transition
+      let currentSlide = 0;
+      let isAnimating = false;
 
-      // Fade in first overlay
-      tl.to(overlayRefs.current[0], { opacity: 1, duration: 0.3, ease: "power2.out" });
-      tl.to({}, { duration: 0.7 });
+      // Show first overlay
+      gsap.set(overlayRefs.current[0], { opacity: 1 });
 
-      for (let i = 1; i < PROJECTS.length; i++) {
-        const card = cardRefs.current[i];
-        const prevOverlay = overlayRefs.current[i - 1];
-        const nextOverlay = overlayRefs.current[i];
+      const playTransition = (fromIdx: number, toIdx: number) => {
+        if (isAnimating) return;
+        if (toIdx < 0 || toIdx >= PROJECTS.length) return;
+        isAnimating = true;
+
+        const prevOverlay = overlayRefs.current[fromIdx];
+        const nextOverlay = overlayRefs.current[toIdx];
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            currentSlide = toIdx;
+            isAnimating = false;
+          },
+        });
 
         tl
-          .to(prevOverlay, { opacity: 0, duration: 0.25, ease: "power1.in" }, `p${i}`)
-          .to(card, { yPercent: 0, duration: 0.7, ease: "power2.inOut" }, `p${i}`)
-          .to(nextOverlay, { opacity: 1, duration: 0.3, ease: "power2.out" }, `p${i}+=0.5`)
-          .to({}, { duration: 0.7 });
-      }
+          // Hide current overlay text
+          .to(prevOverlay, { opacity: 0, duration: 0.2, ease: "power1.in" })
+          .to(wipePanelRefs.current, {
+            scaleX: 1,
+            transformOrigin: "right center",
+            duration: 0.3,
+            ease: "power2.inOut",
+          }, "-=0.1")
+          .call(() => {
+            bgRefs.current.forEach((el, idx) => {
+              if (el) gsap.set(el, { opacity: idx === toIdx ? 1 : 0 });
+            });
+            wipePanelRefs.current.forEach((el) => {
+              if (el) gsap.set(el, { transformOrigin: "left center" });
+            });
+          })
+          .to({}, { duration: 0.7 })
+          .to(wipePanelRefs.current, {
+            scaleX: 0,
+            duration: 0.3,
+            ease: "power2.inOut",
+          })
+          // Reset transformOrigin for next transition
+          .call(() => {
+            wipePanelRefs.current.forEach((el) => {
+              if (el) gsap.set(el, { transformOrigin: "right center" });
+            });
+          })
+          .to(nextOverlay, { opacity: 1, duration: 0.25, ease: "power2.out" }, "-=0.2");
+      };
+
+      // Pin section and use scroll to advance slides
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: `+=${PROJECTS.length * 200}%`,
+        pin: true,
+        pinSpacing: true,
+        onUpdate: (self) => {
+          const step = Math.floor(self.progress * PROJECTS.length * 2);
+          const clamped = Math.min(Math.floor(step / 2), PROJECTS.length - 1);
+          if (clamped !== currentSlide && !isAnimating) {
+            const direction = clamped > currentSlide ? 1 : -1;
+            playTransition(currentSlide, currentSlide + direction);
+          }
+        },
+      });
     }, sectionRef);
 
-    return () => { introCtx.revert(); mainCtx.revert(); };
+    return () => {
+      introCtx.revert();
+      mainCtx.revert();
+    };
   }, []);
 
   return (
@@ -200,27 +408,51 @@ export default function FeaturedProjectsAlt() {
           className="relative overflow-hidden mx-auto"
           style={{ width: "82%", height: "78vh" }}
         >
-          {/* Stacked project images */}
+          {/* Background videos */}
           {PROJECTS.map((project, i) => (
             <div
-              key={project.id}
-              ref={(el) => { cardRefs.current[i] = el; }}
+              key={`bg-${project.id}`}
+              ref={(el) => { bgRefs.current[i] = el; }}
               className="absolute inset-0"
-              style={{ zIndex: i + 1 }}
+              style={{ zIndex: 1, opacity: i === 0 ? 1 : 0 }}
             >
-              <Image
+              <video
                 src={project.src}
-                alt={project.name}
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority={i === 0}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/10 to-black/65 pointer-events-none" />
             </div>
           ))}
 
-          {/* Per-project overlays */}
+          {/* Column grid lines — always on top of panels, dimmed white matching PageIntro */}
+          <div ref={gridLinesRef} className="absolute inset-0 pointer-events-none grid grid-cols-4" style={{ zIndex: 30 }}>
+            <div className="border-r border-white/10 h-full"></div>
+            <div className="border-r border-white/10 h-full"></div>
+            <div className="border-r border-white/10 h-full"></div>
+            <div className="h-full"></div>
+          </div>
+
+          {/* Wipe panels — left-positioned with 1px overlap to prevent gaps */}
+          {[0, 1, 2, 3].map((i) => (
+            <div
+              key={`wipe-${i}`}
+              ref={(el) => { wipePanelRefs.current[i] = el; }}
+              className="absolute top-0 h-full bg-black pointer-events-none"
+              style={{
+                left: `calc(${i * 25}% - 1px)`,
+                width: "calc(25% + 2px)",
+                zIndex: 25,
+                transform: "scaleX(0)",
+                transformOrigin: "right center",
+              }}
+            />
+          ))}
+
+          {/* Per-project overlays (text / info card) */}
           {PROJECTS.map((project, i) => (
             <div
               key={`overlay-${project.id}`}
@@ -229,7 +461,7 @@ export default function FeaturedProjectsAlt() {
             >
               <div className="flex items-end justify-between w-full gap-10">
 
-                {/* Left: project name only */}
+                {/* Left: project name */}
                 <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white font-sans leading-[0.9] tracking-tight">
                   {project.name}
                 </h3>
@@ -239,7 +471,9 @@ export default function FeaturedProjectsAlt() {
                   {/* Price + counter */}
                   <div className="flex items-end justify-between mb-5">
                     <span className="text-2xl md:text-3xl font-light text-white font-sans">{project.price}</span>
-                    <span className="text-xs font-mono text-white/30 pb-1">{project.id} / 0{PROJECTS.length}</span>
+                    <span className="text-xs font-mono text-white/30 pb-1">
+                      {project.id} / {PROJECTS.length < 10 ? `0${PROJECTS.length}` : PROJECTS.length}
+                    </span>
                   </div>
 
                   {/* Specs row */}
@@ -259,8 +493,18 @@ export default function FeaturedProjectsAlt() {
                   {/* CTA */}
                   <button className="flex items-center gap-2 text-xs font-mono text-white/70 uppercase tracking-[0.15em] group hover:text-white transition-colors duration-200">
                     View Project
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 group-hover:translate-x-1">
-                      <path d="M2 8L5.5 11.5L6.207 10.793L3.914 8.5H14V7.5H3.914L6.207 5.207L5.5 4.5L2 8Z" fill="currentColor" />
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="transition-transform duration-200 group-hover:translate-x-1"
+                    >
+                      <path
+                        d="M2 8L5.5 11.5L6.207 10.793L3.914 8.5H14V7.5H3.914L6.207 5.207L5.5 4.5L2 8Z"
+                        fill="currentColor"
+                      />
                     </svg>
                   </button>
                 </div>

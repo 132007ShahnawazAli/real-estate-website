@@ -20,6 +20,10 @@ body {
   font-family: var(--font-sans);
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* Lenis smooth scroll */
 html.lenis,
 html.lenis body {

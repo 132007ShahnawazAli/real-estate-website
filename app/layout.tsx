@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { neueMontreal, splineSansMono } from "./fonts";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import PageIntro from "@/components/PageIntro";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,6 +20,7 @@ export default function RootLayout({
       className={`${neueMontreal.variable} ${splineSansMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <PageIntro />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

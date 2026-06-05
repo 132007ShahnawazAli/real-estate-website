@@ -53,14 +53,14 @@ export default function CreativeCTA() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full min-h-screen bg-slate-100 flex flex-col items-center justify-center overflow-hidden py-32 z-10"
+      className="relative w-full min-h-screen bg-slate-50 flex flex-col items-center justify-center overflow-hidden py-72 md:py-80 z-10"
     >
       {/* Decorative scattered images */}
       
       {/* Top Left */}
       <div 
         ref={el => { imagesRef.current[0] = el; }}
-        className="absolute top-[5%] left-[5%] md:left-[12%] w-32 md:w-56 aspect-[3/4] z-10 group cursor-pointer"
+        className="absolute top-[9%] left-[5%] md:left-[12%] w-32 md:w-56 aspect-[3/4] z-10 group cursor-pointer"
       >
         <Image 
           src="/casa-terracotta.jpg" 
@@ -73,7 +73,7 @@ export default function CreativeCTA() {
       {/* Bottom Left */}
       <div 
         ref={el => { imagesRef.current[1] = el; }}
-        className="absolute bottom-[10%] left-[10%] md:left-[22%] w-40 md:w-64 aspect-square z-10 group cursor-pointer"
+        className="absolute bottom-[13%] left-[10%] md:left-[22%] w-40 md:w-64 aspect-square z-10 group cursor-pointer"
       >
         <Image 
           src="/villa.jpg" 
@@ -86,7 +86,7 @@ export default function CreativeCTA() {
       {/* Top Right */}
       <div 
         ref={el => { imagesRef.current[2] = el; }}
-        className="absolute top-[15%] right-[5%] md:right-[15%] w-36 md:w-60 aspect-[4/3] z-10 group cursor-pointer"
+        className="absolute top-[18%] right-[5%] md:right-[15%] w-36 md:w-60 aspect-[4/3] z-10 group cursor-pointer"
       >
         <Image 
           src="/team.jpg" 
@@ -99,7 +99,7 @@ export default function CreativeCTA() {
       {/* Bottom Right */}
       <div 
         ref={el => { imagesRef.current[3] = el; }}
-        className="absolute bottom-[15%] right-[10%] md:right-[20%] w-28 md:w-48 aspect-[3/4] z-10 group cursor-pointer"
+        className="absolute bottom-[18%] right-[10%] md:right-[20%] w-28 md:w-48 aspect-[3/4] z-10 group cursor-pointer"
       >
         <Image 
           src="/testimonial-1.png" 

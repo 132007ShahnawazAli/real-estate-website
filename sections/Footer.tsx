@@ -36,20 +36,18 @@ export default function Footer() {
       gsap.fromTo(
         hugeTextRef.current,
         { 
-          y: 100, 
-          scale: 0.8,
+          y: 60, 
+          scale: 0.95,
           opacity: 0,
-          filter: "blur(10px)"
         },
         {
           y: 0,
           scale: 1,
           opacity: 1,
-          filter: "blur(0px)",
-          ease: "power3.out",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: footerRef.current,
-            start: "top 80%",
+            start: "top 85%",
             end: "bottom bottom",
             scrub: 1,
           }
@@ -72,8 +70,19 @@ export default function Footer() {
     <footer 
       ref={footerRef}
       className="relative w-full bg-slate-950 text-white overflow-hidden pt-32 pb-8 px-6 sm:px-12 md:px-16 lg:px-24 z-20 flex flex-col justify-between"
-      style={{ minHeight: "80vh" }}
+      style={{ minHeight: "85vh" }}
     >
+      {/* Massive Background Typography - Slightly smaller and lighter */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none select-none">
+        <div 
+          ref={hugeTextRef}
+          className="text-[24vw] font-sans font-normal text-center tracking-tighter text-white/3 uppercase w-full select-none"
+          style={{ transformOrigin: "center center" }}
+        >
+          HORIZON
+        </div>
+      </div>
+
       <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0 relative z-10">
         
         {/* Left: Contact Info */}
@@ -124,21 +133,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Massive Background/Foreground Typography */}
-      <div 
-        className="w-full flex justify-center items-end mt-24 md:mt-auto overflow-hidden relative z-0 pointer-events-none"
-      >
-        <div 
-          ref={hugeTextRef}
-          className="text-[15vw] leading-[0.75] font-sans font-normal text-center tracking-tighter whitespace-nowrap text-slate-900"
-          style={{ transformOrigin: "bottom center" }}
-        >
-          HORIZON
-        </div>
-      </div>
-
       {/* Bottom Legal Bar */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 mt-16 md:mt-24 pt-8 border-t border-slate-800 relative z-10 text-xs font-mono uppercase tracking-widest text-slate-600">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 mt-16 md:mt-24 pt-8 border-t border-slate-900 relative z-10 text-xs font-mono uppercase tracking-widest text-slate-600">
         <p>© {new Date().getFullYear()} HORIZON REAL ESTATE</p>
         <div className="flex gap-8">
           <a href="#" className="hover:text-zinc-300 transition-colors">Privacy Policy</a>

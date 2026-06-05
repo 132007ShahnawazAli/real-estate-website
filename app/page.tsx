@@ -10,7 +10,7 @@ import Footer from "@/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="w-full flex flex-col items-center min-h-screen bg-slate-50">
+    <main className="w-full flex flex-col items-center min-h-screen bg-slate-50 overflow-x-hidden">
       <Hero />
       <StoryTransition />
       {/* <PortfolioStandard /> */}

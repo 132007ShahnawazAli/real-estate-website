@@ -37,8 +37,7 @@ export default function Navbar() {
         { y: 0, opacity: 1, stagger: 0.1, duration: 0.5, ease: "power3.out", delay: 0.4 }
       );
 
-      // Prevent scrolling when menu is open
-      document.body.style.overflow = "hidden";
+      // Removed overflow hidden to keep scrollbar visible
     } else {
       gsap.to(menuContainerRef.current, {
         opacity: 0,
@@ -53,12 +52,11 @@ export default function Navbar() {
         delay: 0.2,
       });
 
-      // Restore scrolling
-      document.body.style.overflow = "auto";
+      // Removed overflow auto
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      // Cleanup
     };
   }, [isOpen]);
 

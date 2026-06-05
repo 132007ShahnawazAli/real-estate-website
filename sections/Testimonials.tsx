@@ -14,7 +14,7 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[0];
 
   return (
-    <section className="w-full bg-slate-100 py-24 px-6 md:px-12 lg:px-24">
+    <section className="w-full bg-slate-50 py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-[1440px] mx-auto">
 
         {/* Top Navigation Bar */}
