@@ -21,7 +21,7 @@ const PROJECTS = [
     area: "2,900",
     description:
       "Nestled into the mountainside, this retreat balances raw alpine material with the quiet discipline of form.",
-    src: "/v1.mp4",
+    src: "/vf1.mp4",
   },
   {
     id: "03",
@@ -35,21 +35,7 @@ const PROJECTS = [
     area: "2,200",
     description:
       "A penthouse suspended between ocean and sky. Floor-to-ceiling glass frames the Atlantic as living canvas.",
-    src: "/v2.mp4",
-  },
-  {
-    id: "04",
-    name: "Onyx Ridge",
-    location: "Jackson Hole, Wyoming",
-    tag: "Modern Cabin",
-    year: "2024",
-    price: "$6,500,000",
-    beds: "6",
-    baths: "5",
-    area: "4,500",
-    description:
-      "Dark timber and sheer glass carve a bold silhouette against the snow-dusted Tetons.",
-    src: "/v3.mp4",
+    src: "/vf2.mp4",
   },
   {
     id: "05",
@@ -63,152 +49,11 @@ const PROJECTS = [
     area: "4,100",
     description:
       "Curved architecture mimicking the waves below. A sanctuary of natural light and bleached oak.",
-    src: "/v4.mp4",
-  },
-  {
-    id: "06",
-    name: "The Foundry",
-    location: "Tribeca, New York",
-    tag: "Penthouse Loft",
-    year: "2023",
-    price: "$12,000,000",
-    beds: "3",
-    baths: "4",
-    area: "3,200",
-    description:
-      "Industrial heritage reimagined with monolithic marble islands and brass accents.",
-    src: "/v5.mp4",
-  },
-  {
-    id: "07",
-    name: "Villa Blanca",
-    location: "Montecito, California",
-    tag: "Mediterranean",
-    year: "2022",
-    price: "$7,200,000",
-    beds: "5",
-    baths: "6",
-    area: "5,500",
-    description:
-      "Classic arches meet modern minimalism, surrounded by ancient olive trees and coastal breezes.",
-    src: "/v6.mp4",
-  },
-  {
-    id: "08",
-    name: "Echo Valley",
-    location: "Sedona, Arizona",
-    tag: "Desert Modern",
-    year: "2024",
-    price: "$4,800,000",
-    beds: "4",
-    baths: "4",
-    area: "3,600",
-    description:
-      "Rammed earth walls seamlessly blend the residence into the surrounding red rock canyons.",
-    src: "/v7.mp4",
-  },
-  {
-    id: "09",
-    name: "The Canopy",
-    location: "Portland, Oregon",
-    tag: "Eco Retreat",
-    year: "2023",
-    price: "$3,900,000",
-    beds: "3",
-    baths: "3",
-    area: "2,800",
-    description:
-      "Elevated living amongst old-growth pines. A masterclass in sustainable luxury and organic design.",
-    src: "/v8.mp4",
-  },
-  {
-    id: "10",
-    name: "Aura",
-    location: "Austin, Texas",
-    tag: "Urban Estate",
-    year: "2025",
-    price: "$5,400,000",
-    beds: "5",
-    baths: "6",
-    area: "4,800",
-    description:
-      "Expansive indoor-outdoor living spaces framing the city skyline with effortless elegance.",
-    src: "/v9.mp4",
-  },
-  {
-    id: "11",
-    name: "Solstice Point",
-    location: "Maui, Hawaii",
-    tag: "Tropical Villa",
-    year: "2024",
-    price: "$14,500,000",
-    beds: "6",
-    baths: "7",
-    area: "6,200",
-    description:
-      "An architectural masterpiece where volcanic stone and vanishing glass walls embrace the Pacific horizon.",
-    src: "/V10.mp4",
-  },
-  {
-    id: "16",
-    name: "Iron & Oak",
-    location: "Austin, Texas",
-    tag: "Hill Country Modern",
-    year: "2025",
-    price: "$3,600,000",
-    beds: "4",
-    baths: "3",
-    area: "3,200",
-    description:
-      "A masterful blend of raw industrial elements and warm natural woods set against rolling hills.",
-    src: "/v11.mp4",
-  },
-  {
-    id: "17",
-    name: "The Pinnacle",
-    location: "Park City, Utah",
-    tag: "Ski Chalet",
-    year: "2024",
-    price: "$8,200,000",
-    beds: "7",
-    baths: "8",
-    area: "6,500",
-    description:
-      "Ski-in, ski-out luxury defined by grand vaulted ceilings and panoramic snowy vistas.",
-    src: "/v1.mp4",
-  },
-  {
-    id: "18",
-    name: "Whispering Willows",
-    location: "Charleston, South Carolina",
-    tag: "Southern Estate",
-    year: "2022",
-    price: "$4,500,000",
-    beds: "5",
-    baths: "5",
-    area: "4,200",
-    description:
-      "Gracious verandas and ancient trees draped in Spanish moss frame this historic Southern gem.",
-    src: "/v2.mp4",
-  },
-  {
-    id: "19",
-    name: "Nordic Light",
-    location: "Seattle, Washington",
-    tag: "Minimalist Waterfront",
-    year: "2023",
-    price: "$6,100,000",
-    beds: "3",
-    baths: "3",
-    area: "2,700",
-    description:
-      "Clean lines and walls of glass embrace the Pacific Northwest's dramatic light and moody waters.",
-    src: "/v3.mp4",
+    src: "/vf3.mp4",
   },
 ];
 
 export default function FeaturedProjectsAlt() {
-  // Intro refs
   const introRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const scrambleRef = useRef<HTMLSpanElement>(null);
@@ -217,16 +62,14 @@ export default function FeaturedProjectsAlt() {
   const paraRef = useRef<HTMLParagraphElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
 
-  // Pinned section refs
   const sectionRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
   const bgRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // Wipe panel refs — one per column line (3 panels for 4-column grid)
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const wipePanelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const gridLinesRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // ═══ INTRO ═══
@@ -258,20 +101,31 @@ export default function FeaturedProjectsAlt() {
       const frame = frameRef.current;
       if (!section || !frame) return;
 
-      // Initial states — all overlays hidden, all bg videos hidden except first
+      // ── Initial states ──
       overlayRefs.current.forEach((el) => {
         if (el) gsap.set(el, { opacity: 0 });
       });
       bgRefs.current.forEach((el, i) => {
         if (el) gsap.set(el, { opacity: i === 0 ? 1 : 0 });
       });
-
-      // Initial state — wipe panels fully retracted (scaleX: 0, growing from right)
       wipePanelRefs.current.forEach((el) => {
         if (el) gsap.set(el, { scaleX: 0, transformOrigin: "right center" });
       });
 
-      // Phase 1: frame expands to fullscreen
+      // Only play the first video, pause all others
+      videoRefs.current.forEach((vid, i) => {
+        if (!vid) return;
+        if (i === 0) {
+          vid.play().catch(() => { });
+          vid.playbackRate = 0.75; // ← slower playback for first video
+        } else {
+          vid.pause();
+        }
+      });
+
+      gsap.set(overlayRefs.current[0], { opacity: 1 });
+
+      // ── Phase 1: expand frame ──
       gsap.fromTo(
         frame,
         { width: "82%", height: "78vh", borderRadius: "6px" },
@@ -289,12 +143,9 @@ export default function FeaturedProjectsAlt() {
         }
       );
 
-      // Phase 2: pin the section, detect scroll steps, auto-play each transition
+      // ── Phase 2: pinned slide transitions ──
       let currentSlide = 0;
       let isAnimating = false;
-
-      // Show first overlay
-      gsap.set(overlayRefs.current[0], { opacity: 1 });
 
       const playTransition = (fromIdx: number, toIdx: number) => {
         if (isAnimating) return;
@@ -303,23 +154,34 @@ export default function FeaturedProjectsAlt() {
 
         const prevOverlay = overlayRefs.current[fromIdx];
         const nextOverlay = overlayRefs.current[toIdx];
+        const nextVideo = videoRefs.current[toIdx];
+
+        // Pre-warm the next video BEFORE the wipe covers the screen
+        if (nextVideo) {
+          nextVideo.play().catch(() => { });
+        }
 
         const tl = gsap.timeline({
           onComplete: () => {
+            // Pause the video we just left
+            const prevVideo = videoRefs.current[fromIdx];
+            if (prevVideo) prevVideo.pause();
+
             currentSlide = toIdx;
             isAnimating = false;
           },
         });
 
         tl
-          // Hide current overlay text
           .to(prevOverlay, { opacity: 0, duration: 0.2, ease: "power1.in" })
+          // Close wipe
           .to(wipePanelRefs.current, {
             scaleX: 1,
             transformOrigin: "right center",
             duration: 0.3,
             ease: "power2.inOut",
           }, "-=0.1")
+          // Swap video under the wipe
           .call(() => {
             bgRefs.current.forEach((el, idx) => {
               if (el) gsap.set(el, { opacity: idx === toIdx ? 1 : 0 });
@@ -328,13 +190,14 @@ export default function FeaturedProjectsAlt() {
               if (el) gsap.set(el, { transformOrigin: "left center" });
             });
           })
-          .to({}, { duration: 0.7 })
+          // Hold beat
+          .to({}, { duration: 0.2 })
+          // Open wipe
           .to(wipePanelRefs.current, {
             scaleX: 0,
             duration: 0.3,
             ease: "power2.inOut",
           })
-          // Reset transformOrigin for next transition
           .call(() => {
             wipePanelRefs.current.forEach((el) => {
               if (el) gsap.set(el, { transformOrigin: "right center" });
@@ -343,7 +206,6 @@ export default function FeaturedProjectsAlt() {
           .to(nextOverlay, { opacity: 1, duration: 0.25, ease: "power2.out" }, "-=0.2");
       };
 
-      // Pin section and use scroll to advance slides
       ScrollTrigger.create({
         trigger: section,
         start: "top top",
@@ -364,12 +226,14 @@ export default function FeaturedProjectsAlt() {
     return () => {
       introCtx.revert();
       mainCtx.revert();
+      // Clean up — pause all videos on unmount
+      videoRefs.current.forEach((vid) => vid?.pause());
     };
   }, []);
 
   return (
     <>
-      {/* ══ INTRO ════════════════════════════════════════════════ */}
+      {/* ══ INTRO ══ */}
       <div
         ref={introRef}
         className="relative w-full bg-slate-50 text-slate-900 px-6 sm:px-12 md:px-16 lg:px-20 py-24 md:py-32 font-sans select-none z-20 flex flex-col gap-12 md:gap-16"
@@ -397,7 +261,7 @@ export default function FeaturedProjectsAlt() {
         </div>
       </div>
 
-      {/* ══ EXPANDING IMAGE + CARD SCROLL ══════════════════════ */}
+      {/* ══ EXPANDING IMAGE + CARD SCROLL ══ */}
       <div
         ref={sectionRef}
         className="relative w-full flex items-center justify-center z-20 bg-slate-50"
@@ -414,29 +278,39 @@ export default function FeaturedProjectsAlt() {
               key={`bg-${project.id}`}
               ref={(el) => { bgRefs.current[i] = el; }}
               className="absolute inset-0"
-              style={{ zIndex: 1, opacity: i === 0 ? 1 : 0 }}
+              style={{
+                zIndex: 1,
+                opacity: i === 0 ? 1 : 0,
+                willChange: "opacity",        // ← GPU layer hint
+              }}
             >
               <video
+                ref={(el) => { videoRefs.current[i] = el; }}
                 src={project.src}
-                autoPlay
                 loop
                 muted
                 playsInline
+                preload="metadata"            // ← only load metadata upfront, not full video
                 className="w-full h-full object-cover"
+                style={{ willChange: "transform" }} // ← prevents repaint on compositing
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/10 to-black/65 pointer-events-none" />
             </div>
           ))}
 
-          {/* Column grid lines — always on top of panels, dimmed white matching PageIntro */}
-          <div ref={gridLinesRef} className="absolute inset-0 pointer-events-none grid grid-cols-4" style={{ zIndex: 30 }}>
-            <div className="border-r border-white/10 h-full"></div>
-            <div className="border-r border-white/10 h-full"></div>
-            <div className="border-r border-white/10 h-full"></div>
-            <div className="h-full"></div>
+          {/* Column grid lines */}
+          <div
+            ref={gridLinesRef}
+            className="absolute inset-0 pointer-events-none grid grid-cols-4"
+            style={{ zIndex: 30 }}
+          >
+            <div className="border-r border-white/10 h-full" />
+            <div className="border-r border-white/10 h-full" />
+            <div className="border-r border-white/10 h-full" />
+            <div className="h-full" />
           </div>
 
-          {/* Wipe panels — left-positioned with 1px overlap to prevent gaps */}
+          {/* Wipe panels */}
           {[0, 1, 2, 3].map((i) => (
             <div
               key={`wipe-${i}`}
@@ -448,27 +322,29 @@ export default function FeaturedProjectsAlt() {
                 zIndex: 25,
                 transform: "scaleX(0)",
                 transformOrigin: "right center",
+                willChange: "transform",       // ← critical: own GPU layer for transform
               }}
             />
           ))}
 
-          {/* Per-project overlays (text / info card) */}
+          {/* Per-project overlays */}
           {PROJECTS.map((project, i) => (
             <div
               key={`overlay-${project.id}`}
               ref={(el) => { overlayRefs.current[i] = el; }}
               className="absolute inset-0 z-20 pointer-events-none px-6 sm:px-12 md:px-16 lg:px-20 py-12 sm:py-16 flex flex-col justify-end"
+              style={{ willChange: "opacity" }}
             >
               <div className="flex items-end justify-between w-full gap-10">
-
-                {/* Left: project name */}
                 <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white font-sans leading-[0.9] tracking-tight">
                   {project.name}
                 </h3>
 
-                {/* Right: info card */}
-                <div className="shrink-0 w-64 sm:w-72 md:w-80 bg-black/55 backdrop-blur-md border border-white/10 p-6 md:p-8 pointer-events-auto">
-                  {/* Price + counter */}
+                {/* Info card — no backdrop-blur to avoid GPU repaints during transition */}
+                <div
+                  ref={i === 0 ? cardRef : undefined}
+                  className="shrink-0 w-64 sm:w-72 md:w-80 bg-black/60 border border-white/10 p-6 md:p-8 pointer-events-auto"
+                >
                   <div className="flex items-end justify-between mb-5">
                     <span className="text-2xl md:text-3xl font-light text-white font-sans">{project.price}</span>
                     <span className="text-xs font-mono text-white/30 pb-1">
@@ -476,7 +352,6 @@ export default function FeaturedProjectsAlt() {
                     </span>
                   </div>
 
-                  {/* Specs row */}
                   <div className="flex items-center gap-3 mb-5 pb-5 border-b border-white/10">
                     <span className="text-xs font-mono text-white/55">{project.beds} Bed</span>
                     <span className="text-white/20 text-xs">·</span>
@@ -485,26 +360,16 @@ export default function FeaturedProjectsAlt() {
                     <span className="text-xs font-mono text-white/55">{project.area} sqft</span>
                   </div>
 
-                  {/* Description */}
                   <p className="text-sm text-white/60 font-sans leading-relaxed mb-6">
                     {project.description}
                   </p>
 
-                  {/* CTA */}
                   <button className="flex items-center gap-2 text-xs font-mono text-white/70 uppercase tracking-[0.15em] group hover:text-white transition-colors duration-200">
                     View Project
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="transition-transform duration-200 group-hover:translate-x-1"
-                    >
-                      <path
-                        d="M2 8L5.5 11.5L6.207 10.793L3.914 8.5H14V7.5H3.914L6.207 5.207L5.5 4.5L2 8Z"
-                        fill="currentColor"
-                      />
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      className="transition-transform duration-200 group-hover:translate-x-1">
+                      <path d="M2 8L5.5 11.5L6.207 10.793L3.914 8.5H14V7.5H3.914L6.207 5.207L5.5 4.5L2 8Z" fill="currentColor" />
+
                     </svg>
                   </button>
                 </div>
